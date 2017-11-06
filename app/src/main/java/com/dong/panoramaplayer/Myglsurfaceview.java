@@ -24,14 +24,14 @@ public class Myglsurfaceview extends GLSurfaceView {
 
     public Myglsurfaceview(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(context);
     }
 
-    private void init() {
+    private void init(Context context) {
         try {
             Log.d(TAG, "init");
             setEGLContextClientVersion(2);
-            mglRender = new GLRenderer();
+            mglRender = new GLRenderer(context);
             setRenderer(mglRender);
             setRenderMode(RENDERMODE_WHEN_DIRTY);
         } catch (Exception e) {
